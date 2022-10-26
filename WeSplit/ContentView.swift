@@ -39,7 +39,6 @@ struct ContentView: View {
                         Spacer()
                         TextField("", value: $numPeople, format: .number).keyboardType(.numberPad)
                             .frame(width: 40, height: 25)
-                            .background(.blue)
                             .multilineTextAlignment(.center)
                             .textFieldStyle(.roundedBorder)
                         
@@ -63,6 +62,8 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("WeSplit")
+            .scrollContentBackground(.hidden)
+            .background(Color.meadowGreen)
         }
     }
 }

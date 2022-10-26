@@ -11,6 +11,7 @@
 		547AF50F2908753900622F29 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AF50E2908753900622F29 /* ContentView.swift */; };
 		547AF5112908753C00622F29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 547AF5102908753C00622F29 /* Assets.xcassets */; };
 		547AF5142908753C00622F29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 547AF5132908753C00622F29 /* Preview Assets.xcassets */; };
+		547AF51B2908F7D700622F29 /* Color+WeSplitColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547AF51A2908F7D700622F29 /* Color+WeSplitColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		547AF50E2908753900622F29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		547AF5102908753C00622F29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		547AF5132908753C00622F29 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		547AF51A2908F7D700622F29 /* Color+WeSplitColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+WeSplitColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				547AF50C2908753900622F29 /* WeSplitApp.swift */,
 				547AF50E2908753900622F29 /* ContentView.swift */,
+				547AF51A2908F7D700622F29 /* Color+WeSplitColors.swift */,
 				547AF5102908753C00622F29 /* Assets.xcassets */,
 				547AF5122908753C00622F29 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547AF51B2908F7D700622F29 /* Color+WeSplitColors.swift in Sources */,
 				547AF50F2908753900622F29 /* ContentView.swift in Sources */,
 				547AF50D2908753900622F29 /* WeSplitApp.swift in Sources */,
 			);
