@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var checkAmount = 0.0
-    @State private var numPeople = 0
+    @State private var numPeople = 2
     @State private var tipPercent = 20
+    @FocusState private var totalIsFocused: Bool
+    @FocusState private var peopleIsFocused: Bool
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
@@ -22,26 +24,29 @@ struct ContentView: View {
         return grandTotal/peopleCount
     }
     
+    var grandTotal: Double {
+        let tipPercentage = Double(tipPercent)
+        let tipAmount = checkAmount * tipPercentage / 100
+        return checkAmount + tipAmount
+    }
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
-                    
-                    //                    Picker("Number of people", selection: $numPeople) {
-                    //                        ForEach(2..<100) {
-                    //                            Text("\($0) people")
-                    //                        }
-                    //                    }
+                        .focused($totalIsFocused)
                     HStack {
                         Text("Number of people")
                         Spacer()
-                        TextField("", value: $numPeople, format: .number).keyboardType(.numberPad)
+                        TextField("", value: $numPeople, format: .number)
+                            .keyboardType(.numberPad)
                             .frame(width: 40, height: 25)
                             .multilineTextAlignment(.center)
                             .textFieldStyle(.roundedBorder)
-                        
+                            .focused($peopleIsFocused)
+
                     }
                 }
                 Section {
@@ -53,17 +58,33 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                 } header: {
                     Text("How much do you want to tip?")
+                        .foregroundColor(.black)
                 }
-                
-                
                 Section {
                     Text(totalPerPerson, format:
                             .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                } header: {
+                    Text("Amount per person")
+                        .foregroundColor(.black)
+                }
+                Section {
+                    Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                } header: {
+                    Text("Grand total")
+                        .foregroundColor(.black)
                 }
             }
             .navigationTitle("WeSplit")
             .scrollContentBackground(.hidden)
             .background(Color.meadowGreen)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        totalIsFocused = false
+                    }
+                }
+            }
         }
     }
 }
